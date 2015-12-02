@@ -69,8 +69,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\CameraController.cs" />
+    <Compile Include="Assets\scripts\ExitGameplay.cs" />
     <Compile Include="Assets\scripts\Maze.cs" />
     <Compile Include="Assets\scripts\PlayerCotrol.cs" />
+    <Compile Include="Assets\scripts\Timer.cs" />
+    <Compile Include="Assets\scripts\ZoomText.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

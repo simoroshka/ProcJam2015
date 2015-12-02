@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 
 public class Maze : MonoBehaviour {
    
@@ -18,6 +20,7 @@ public class Maze : MonoBehaviour {
     public float wallLength = 1.0f;
     private int xSize = 3;
     private int ySize = 3;
+    private int count = 0;
 
     private Vector3 initialPos;
     private GameObject wallHolder;
@@ -38,6 +41,8 @@ public class Maze : MonoBehaviour {
 
     public void createLevel()
     {
+        DisplayThings();
+
         currentCell = 0;
         visitedCells = 0;
         startedBuilding = false;
@@ -48,9 +53,10 @@ public class Maze : MonoBehaviour {
         CreateWalls();
         CreateFloor();
         SetStartEndPoints();
-
-        xSize += 2;
-        ySize += 2;
+        
+        xSize++;
+        ySize++;
+        count++;
     }
 
     void SetStartEndPoints()
@@ -276,8 +282,14 @@ public class Maze : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void DisplayThings()
+    {
+        GameObject sizeText = GameObject.Find("SizeText");
+        sizeText.GetComponent<TextMesh>().text = xSize + " x " + ySize;
+        sizeText.transform.position = new Vector3(0f, 0f, 20f);
+        sizeText.transform.localScale = new Vector3(0.1f, 0.1f, 1f);
+
+        Text countText = GameObject.Find("Count").GetComponent<Text>();
+        countText.text = count.ToString();
+    }
 }
